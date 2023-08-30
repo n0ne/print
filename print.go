@@ -54,6 +54,22 @@ func Structc(strct interface{}) {
 
 }
 
+func Slice[T any](s []T) {
+	// Convert the slice values to strings
+	strValues := make([]string, 0)
+	for _, value := range s {
+		strValues = append(strValues, fmt.Sprint(value))
+	}
+
+	typeOfSlice := fmt.Sprintf("%T", s)
+
+	// Concatenate the values with a space separator and add brackets
+	result := typeOfSlice + "{ " + strings.Join(strValues, ", ") + " }"
+
+	// Print the concatenated string
+	fmt.Println(result)
+}
+
 func colorizeJSON(input string, keyColorFunc, valueColorFunc func(a ...interface{}) string) string {
 	// Split the input into lines
 	lines := strings.Split(input, "\n")
