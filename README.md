@@ -76,7 +76,7 @@ The output for slices will be:
 
 <img width="231" alt="Screenshot 2023-08-30 at 17 55 03" src="https://github.com/n0ne/print/assets/783906/17779377-94aa-4e55-9942-47a5fcfb8f8a">
 
-### Print slice
+### Print error message
 
 Let's add some color to our error message:
 ```go
