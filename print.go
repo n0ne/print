@@ -12,7 +12,7 @@ import (
 func Struct(strct interface{}) {
 	argValue := reflect.ValueOf(strct)
 	if argValue.Kind() != reflect.Struct {
-		fmt.Println("Error: Argument is not a struct")
+		Error("Error: Argument is not a struct")
 		return
 	}
 
@@ -30,7 +30,7 @@ func Struct(strct interface{}) {
 func Structc(strct interface{}) {
 	argValue := reflect.ValueOf(strct)
 	if argValue.Kind() != reflect.Struct {
-		fmt.Println("Error: Argument is not a struct")
+		Error("Error: Argument is not a struct")
 		return
 	}
 
@@ -83,4 +83,15 @@ func colorizeJSON(input string, keyColorFunc, valueColorFunc func(a ...interface
 
 	// Join the lines back into a string and return
 	return strings.Join(lines, "\n")
+}
+
+func Error(error string) {
+	redColor := "\033[31m"
+	resetColor := "\033[0m"
+
+	if CheckString(error) {
+		fmt.Println(redColor + error + resetColor)
+	} else {
+		fmt.Println("Argument is not a string")
+	}
 }
